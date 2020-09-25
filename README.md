@@ -1,2 +1,2 @@
-# shellhacks-2020
+# Mediq - product barcode scanner
 Project for Shellhacks 2020
