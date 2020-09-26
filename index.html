@@ -9,13 +9,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="js/quagga.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
-
-  <!-- link href="css/style.css" rel="stylesheet" -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <p>Hello, world!</p>
+    <div class="container">
+        <div class="header">
+            <h1>med<span id="header">i</span>q</h1>
+        </div>
+    </div>
+    <div class="subtitle">
+        <h2>BarCode Scan</h2>
+        <h4>Scan the barcode on the back of your medication package for important information.</h4>
+    </div>
 
 <div class="controls">
         <fieldset class="input-group">
@@ -93,6 +101,11 @@
         <ul class="thumbnails"></ul>
     </div>
     <div id="interactive" class="viewport"></div>
+    <div class="container">
+        <div class="footer">
+            <h1>&#169; ShellHacks 2020</h1>
+        </div>
+    </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.21.1/firebase-app.js"></script>

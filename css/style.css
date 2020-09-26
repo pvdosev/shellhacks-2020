@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.container{
+    background-color: rgb(245, 244, 244);
+}
+
+.header, .footer{
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.footer{
+    color: green;
+}
+
+#header{
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+}
+
+.subtitle{
+    margin: 40px;
+}
+
+h1, h2, h4{
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.header > h1{
+    font-size: 200px;
+}
+
+.footer > h1{
+    font-size: 50px;
+}
+
+h2{
+    font-size: 150px;
+}
+
+h4{
+    font-weight: 400;
+    font-size: 3rem;
+    margin: 10px;
+    line-height: 130%;
+}
+
+.stop{
+    background-color: red;
+    color: white;
+    height: 50px;
+    width: 200px;
+    border-radius: 30px;
+    margin: 20px 60px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.reader-config-group{
+    width: 80%;
+    margin: 50px auto;
+    border: 2px dashed black;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    margin: 20px;
+    justify-content: space-between;
+}
+
+select {
+	background: #F0F3FB;
+	border: 1px solid #F0F3FB;
+	border-radius: 4px;
+	width: 100%;
+	padding: 20px;
+	font-size: 16px;
+	color: #3F3F3F;
+
+	/* Here's the code we need */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	 -o-appearance: none;
+		appearance: none;
+}
+
+#interactive{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .header > h1{
+        font-size: 100px;
+    }
+
+    h2{
+        font-size: 75px;
+        text-align: center;
+    }
+
+    h4{
+        font-weight: 400;
+        font-size: 30px;
+        margin: 10px;
+        line-height: 130%;
+        text-align: center;
+    }
+  }
