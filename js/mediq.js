@@ -1,6 +1,13 @@
+//const firebase = require("firebase");
+// Required for side-effects
+//require("firebase/firestore");
+
 $(function() {
     var App = {
         init : function() {
+
+            db = firebase.firestore();
+
             Quagga.init(this.state, function(err) {
                 if (err) {
                     console.log(err);
@@ -150,6 +157,20 @@ $(function() {
             Quagga.stop();
             App.init();
         },
+        getBarcodeInfo: function(barcode) {
+            var info = db.collection("medication").doc(barcode);
+
+            info.get().then(function(doc) {
+                if (doc.exists) {
+                    console.log("Document data:", doc.data());
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        },
         inputMapper: {
             inputStream: {
                 constraints: function(value){
@@ -211,8 +232,30 @@ $(function() {
             },
             locate: true
         },
-        lastResult : null
+        last5Results : []
     };
+
+function modeBarcode(array)
+{
+    if(array.length == 0)
+        return null;
+    var modeMap = {};
+    var maxEl = array[0], maxCount = 1;
+    for(var i = 0; i < array.length; i++)
+    {
+        var el = array[i];
+        if(modeMap[el] == null)
+            modeMap[el] = 1;
+        else
+            modeMap[el]++;  
+        if(modeMap[el] > maxCount)
+        {
+            maxEl = el;
+            maxCount = modeMap[el];
+        }
+    }
+    
+}
 
     App.init();
 
@@ -241,16 +284,13 @@ $(function() {
     });
 
     Quagga.onDetected(function(result) {
-        var code = result.codeResult.code;
+        App.last5Results.push(result.codeResult.code); 
+        console.log(App.last5Results);
 
-        if (App.lastResult !== code) {
-            App.lastResult = code;
-            var $node = null, canvas = Quagga.canvas.dom.image;
 
-            $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-            $node.find("img").attr("src", canvas.toDataURL());
-            $node.find("h4.code").html(code);
-            $("#result_strip ul.thumbnails").prepend($node);
+        if (App.last5Results.length > 5) {
+            App.getBarcodeInfo(modeBarcode(App.last5Results));
+            App.last5Results = [];
         }
     });
 });
