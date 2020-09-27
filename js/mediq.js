@@ -158,6 +158,8 @@ $(function() {
             App.init();
         },
         getBarcodeInfo: function(barcode) {
+            console.log(barcode);
+            barcode = barcode.substring(1);
             var info = db.collection("medication").doc(barcode);
 
             info.get().then(function(doc) {
@@ -254,7 +256,7 @@ function modeBarcode(array)
             maxCount = modeMap[el];
         }
     }
-    
+    return maxEl;
 }
 
     App.init();
