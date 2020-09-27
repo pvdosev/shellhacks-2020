@@ -158,13 +158,18 @@ $(function() {
             App.init();
         },
         getBarcodeInfo: function(barcode) {
+            document.getElementById("resultsScreen").style.display = "block";
             console.log(barcode);
             barcode = barcode.substring(1);
             var info = db.collection("medication").doc(barcode);
 
             info.get().then(function(doc) {
                 if (doc.exists) {
-                    console.log("Document data:", doc.data());
+                    medicineInfo = doc.data();
+                    console.log(medicineInfo);
+                    console.log(medicineInfo.medicine_name);
+                    $("#medicineName").text(medicineInfo.medicine_name);
+                    $("#ingredients").append(document.createTextNode(medicineInfo.active_ingredients[0]));
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
@@ -291,6 +296,10 @@ function modeBarcode(array)
 
 
         if (App.last5Results.length > 5) {
+            var cameraFeed = document.getElementById("interactive");
+            cameraFeed.getElementsByTagName("video")[0].pause();
+            Quagga.stop();
+
             App.getBarcodeInfo(modeBarcode(App.last5Results));
             App.last5Results = [];
         }

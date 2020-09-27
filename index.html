@@ -36,7 +36,7 @@
         <h2>BarCode Scan</h2>
         <h4>Scan the barcode on the back of your medication package for important information.</h4>
     </div>
-<div class="container" style="background-color: white;">
+<!--div class="container" style="background-color: white;">
     <button class="startButton">
         Start
     </button>
@@ -48,8 +48,8 @@
                         src="https://image.freepik.com/free-vector/scan-qr-code-flat-icon-with-phone-barcode-illustration_149152-6.jpg"
                         alt="Avatar" style="width:60%">
                 </center>
-                <!-- <h4><b>SCAN</b></h4>
-                <p>IMPORTANT INFORMATION</p> -->
+                <-- <h4><b>SCAN</b></h4>
+                <p>IMPORTANT INFORMATION</p> >
             </div>
         </div>
         <div class="col-sm-4">
@@ -59,12 +59,12 @@
                         src="https://media.istockphoto.com/vectors/code-reader-app-on-smartphone-screen-scan-qr-code-vector-id500641310?k=6&m=500641310&s=612x612&w=0&h=vz7oilKl6rp-UeR5eaXkOTcBXaxj5WA-BXJt8Mabr3g="
                         alt="Avatar" style="width:60%">
                 </center>
-                <!-- <h4><b>SCAN</b></h4>
-                <p>SHELLHACKS</p> -->
+                <-- <h4><b>SCAN</b></h4>
+                <p>SHELLHACKS</p> ->
             </div>
         </div>
     </div>
-</div>
+</div-->
 <div class="controls">
         <fieldset class="input-group">
             <button class="stop">Stop</button>
@@ -147,6 +147,15 @@
         </div>
     </div>
 
+    <div id="resultsScreen" onclick="off()">
+        <div id="medicineInfo">
+            <h1 id="medicineName">Antibiotic Cream</h1>
+            <h3 id="ingredients">Active Ingredients:  </h3>
+        </div>
+    </div>
+<script type="text/javascript">function off() {
+    document.getElementById("resultsScreen").style.display = "none";
+}</script>
 
 
   <script src="js/mediq.js"></script>
